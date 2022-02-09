@@ -1,7 +1,7 @@
 # JojoIV's Scoop Bucket
 
 <!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Build Status](https://ci.appveyor.com/api/projects/status/<appveyor-badge-id>?svg=true)](https://ci.appveyor.com/project/Jojo4GH/scoop-JojoIV "Build Status") [![Excavator](https://github.com/Jojo4GH/scoop-JojoIV/actions/workflows/excavator.yml/badge.svg)](https://github.com/Jojo4GH/scoop-JojoIV/actions/workflows/excavator.yml) -->
+<!-- [![Build Status](https://ci.appveyor.com/api/projects/status/rjd3vhlnek897ofy?svg=true)](https://ci.appveyor.com/project/Jojo4GH/scoop-JojoIV "Build Status") [![Excavator](https://github.com/Jojo4GH/scoop-JojoIV/actions/workflows/excavator.yml/badge.svg)](https://github.com/Jojo4GH/scoop-JojoIV/actions/workflows/excavator.yml) -->
 
 Personal bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
 
