@@ -21,6 +21,8 @@ $commandColor = "DarkMagenta"
 $infoColor = "Gray"
 
 
+$scoopDir = if ($null -eq $env:SCOOP) { "$env:USERPROFILE\scoop" } else { $env:SCOOP }
+
 
 function Find-Query ($query) {
     $headers = @{
@@ -48,7 +50,7 @@ function Find-Query ($query) {
 }
 
 function Get-AvailableBucket {
-    $dirs = Get-ChildItem "$env:SCOOP\buckets" -Directory
+    $dirs = Get-ChildItem "$scoopDir\buckets" -Directory
     return $dirs | % {
         @{
             "name" = $_.Name
@@ -58,7 +60,7 @@ function Get-AvailableBucket {
 }
 
 function Get-InstalledApp {
-    return Get-ChildItem "$env:SCOOP\apps" -Directory
+    return Get-ChildItem "$scoopDir\apps" -Directory
 }
 
 function Write-App ($app, $bucketName, $indent = "") {
