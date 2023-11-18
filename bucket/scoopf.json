@@ -10,9 +10,9 @@
         "PSWriteColor"
     ],
     "post_install": [
-        "scoop alias rm find > $null",
+        "scoop alias rm find 6> $null",
         "scoop alias add find 'pwsh -Command scoopf.ps1 @args'",
-        "scoop alias rm f > $null",
+        "scoop alias rm f 6> $null",
         "scoop alias add f 'pwsh -Command scoopf.ps1 @args'"
     ],
     "pre_uninstall": [
