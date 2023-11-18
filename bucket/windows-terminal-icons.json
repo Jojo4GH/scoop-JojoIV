@@ -1,0 +1,8 @@
+{
+    "version": "1.0.0",
+    "description": "Windows Terminal is great, but when building profiles it doesn't provide default icons for profiles. This repo is created to solve this issue.",
+    "homepage": "https://github.com/TheFern2/windows-terminal-icons",
+    "license": "MIT",
+    "url": "https://github.com/TheFern2/windows-terminal-icons/archive/refs/heads/main.zip",
+    "extract_dir": "windows-terminal-icons-main\\icons"
+}
