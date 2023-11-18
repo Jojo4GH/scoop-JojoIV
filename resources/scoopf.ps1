@@ -38,7 +38,6 @@ function Find-Query ($query) {
         "skip" = $pageSize * ($page - 1)
     }
 
-    echo "Searching for `"$query`" ..."
     $response = Invoke-WebRequest $url -Method POST -Headers $headers -Body (ConvertTo-Json $body) -ContentType "application/json"
 
     if ($response.StatusCode -ne 200) {
@@ -119,19 +118,30 @@ function Write-Bucket ($apps, $availableBuckets, $indent = "") {
 
 
 # Input parsing
-$query = $args[0]
+if ($args[-1] -match "^\d+$") {
+    $page = $args[-1]
+    if ($page -lt 1) {
+        $page = 1
+    }
+    $args = $args[0..($args.Length - 2)]
+} else {
+    $page = 1
+}
+$query = $args
 if ($null -eq $query) {
     Write-Color "Please provide a search query" -Color Red
     exit 1
 }
 
-$page = $args[1]
-if ($null -eq $page -or $page -lt 1) {
-    $page = 1
-}
 
 # Request
+Write-Color "Searching for `"$query`"" -NoNewline
+if ($page -gt 1) {
+    Write-Color " on page $page" -NoNewline
+}
+Write-Color " ..."
 $result = Find-Query $query
+
 
 # Result processing
 $totalCount = $result.'@odata.count'
@@ -142,6 +152,7 @@ if ($count -eq 0) {
 }
 $remainingCount = $totalCount - $pageSize * $page
 $appsByBucket = $result.value | Group-Object -Property { $_.Metadata.Repository } | Sort-Object -Property { $_.Name } | Sort-Object -Property { $_.Group[0].Metadata.OfficialRepositoryNumber } -Descending
+
 
 # Output
 Write-Color "Found $totalCount result(s) in $($appsByBucket.Count) bucket(s)" -NoNewline
