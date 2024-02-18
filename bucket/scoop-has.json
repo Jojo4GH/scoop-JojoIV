@@ -3,7 +3,7 @@
     "homepage": "https://github.com/Jojo4GH/scoop-JojoIV",
     "version": "1.0",
     "url": "https://raw.githubusercontent.com/Jojo4GH/scoop-JojoIV/master/resources/scoop-has.ps1",
-    "hash": "270d72e9630bb73913bb333b7bdd68ba9a1d9cfecf3898316f52cfd115e894df",
+    "hash": "ef717409d68e921b60a2ac9b538ee852caf2df40801f5ecf9bd3ce29d1aeebf2",
     "bin": "scoop-has.ps1",
     "depends": [
         "pwsh"
