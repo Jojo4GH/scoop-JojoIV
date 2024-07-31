@@ -3,7 +3,7 @@
     "description": "The interactive, intuitive and stylish replacement for ls & cd!",
     "homepage": "https://github.com/Jojo4GH/nav",
     "license": "MIT",
-    "notes": "Usage: Add 'Invoke-Expression (& nav --init powershell | Out-String)' to the end of your PowerShell $PROFILE.",
+    "notes": "Please add  'Invoke-Expression (& nav --init powershell | Out-String)'  to the end of your PowerShell $PROFILE.",
     "architecture": {
         "64bit": {
             "url": "https://github.com/Jojo4GH/nav/releases/download/v1.1.0/nav-x86_64-pc-windows-gnu.zip",
