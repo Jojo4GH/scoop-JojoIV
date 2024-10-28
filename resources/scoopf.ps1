@@ -9,6 +9,7 @@
 #   scoopf git
 #   scoopf git 2
 #
+# Version: 1.3.1
 
 
 # Settings
@@ -94,7 +95,7 @@ function Write-Bucket ($apps, $availableBuckets, $indent = "") {
     $bucketName = $bucket.Split("/")[-1] -replace "scoop-", "" -replace "Scoop-", ""
     $bucketName = "$($bucket.Split("/")[-2])_$bucketName"
     $bucketColor = "Red"
-    $installedBucket = $availableBuckets | ? { $_.url -eq $bucket }
+    $installedBucket = $availableBuckets | ? { ($_.url -eq $bucket) || ($_.url -eq "$bucket.git") }
     if ($null -ne $installedBucket) {
         $bucket = $installedBucket.name
         $bucketName = $installedBucket.name
