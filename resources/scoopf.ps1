@@ -9,7 +9,7 @@
 #   scoopf git
 #   scoopf git 2
 #
-# Version: 1.3.1
+# Version: 1.3.2
 
 
 # Settings
@@ -54,7 +54,7 @@ function Get-AvailableBucket {
     return $dirs | % {
         @{
             "name" = $_.Name
-            "url" = (git -C $_.FullName config --get remote.origin.url)
+            "url" = (git -C $_.FullName config --get remote.origin.url) -replace ".git$", ""
         }
     }
 }
@@ -95,7 +95,7 @@ function Write-Bucket ($apps, $availableBuckets, $indent = "") {
     $bucketName = $bucket.Split("/")[-1] -replace "scoop-", "" -replace "Scoop-", ""
     $bucketName = "$($bucket.Split("/")[-2])_$bucketName"
     $bucketColor = "Red"
-    $installedBucket = $availableBuckets | ? { ($_.url -eq $bucket) || ($_.url -eq "$bucket.git") }
+    $installedBucket = $availableBuckets | ? { $_.url -eq $bucket }
     if ($null -ne $installedBucket) {
         $bucket = $installedBucket.name
         $bucketName = $installedBucket.name
