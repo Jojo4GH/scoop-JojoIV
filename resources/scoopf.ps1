@@ -51,7 +51,7 @@ function Find-Query ($query) {
 
 function Get-AvailableBucket {
     $dirs = Get-ChildItem "$scoopDir\buckets" -Directory
-    return $dirs | % {
+    return $dirs | ForEach-Object {
         @{
             "name" = $_.Name
             "url" = (git -C $_.FullName config --get remote.origin.url) -replace ".git$", ""
@@ -95,7 +95,7 @@ function Write-Bucket ($apps, $availableBuckets, $indent = "") {
     $bucketName = $bucket.Split("/")[-1] -replace "scoop-", "" -replace "Scoop-", ""
     $bucketName = "$($bucket.Split("/")[-2])_$bucketName"
     $bucketColor = "Red"
-    $installedBucket = $availableBuckets | ? { $_.url -eq $bucket }
+    $installedBucket = $availableBuckets | Where-Object { $_.url -eq $bucket }
     if ($null -ne $installedBucket) {
         $bucket = $installedBucket.name
         $bucketName = $installedBucket.name
@@ -124,11 +124,11 @@ if ($args[-1] -match "^\d+$") {
     if ($page -lt 1) {
         $page = 1
     }
-    $args = $args[0..($args.Length - 2)]
+    $query = $args[0..($args.Length - 2)]
 } else {
     $page = 1
+    $query = $args
 }
-$query = $args
 if ($null -eq $query) {
     Write-Color "Please provide a search query" -Color Red
     exit 1
