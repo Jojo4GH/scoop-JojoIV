@@ -1,10 +1,10 @@
 {
     "description": "Script for searching all of scoop for apps - Just like https://scoop.sh/",
     "homepage": "https://github.com/Jojo4GH/scoopf",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "license": "MIT",
-    "url": "https://raw.githubusercontent.com/Jojo4GH/scoopf/refs/tags/v1.4.0/scoopf.ps1",
-    "hash": "0ac06d9743ba12d60bf37d9bbf7c166c8612bc1ee9aa3d36598de15dbbdd4ef7",
+    "url": "https://raw.githubusercontent.com/Jojo4GH/scoopf/refs/tags/v1.5.0/scoopf.ps1",
+    "hash": "030b8e2eaa6b280aca4147768e8bce03fcdae1b99720d1d30bda8d9281d7ab1d",
     "bin": "scoopf.ps1",
     "depends": [
         "pwsh",
