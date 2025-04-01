@@ -5,7 +5,7 @@
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://packages.jetbrains.team/maven/p/amper/amper/org/jetbrains/amper/cli/0.5.0/cli-0.5.0-dist.zip",
+            "url": "https://packages.jetbrains.team/maven/p/amper/amper/org/jetbrains/amper/cli/0.5.0/cli-0.5.0-dist.tgz",
             "hash": "227d8fcf56d0c7268b463b0c47aaa93b9efa24395b8873ec26845ee2fe6e752f"
         }
     },
