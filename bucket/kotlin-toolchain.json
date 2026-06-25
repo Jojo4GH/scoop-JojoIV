@@ -14,12 +14,10 @@
         "cache"
     ],
     "pre_install": "\"`$env:KOTLIN_CLI_BOOTSTRAP_CACHE_DIR = `\"$dir\\cache\\cli`\"; & `\"$dir\\kotlin-cli-0.11.1-wrapper.bat`\" `@args\" > \"$dir\\kotlin.ps1\"",
-    "installer": {
-        "script": [
-            "$env:KOTLIN_CLI_WRAPPER_ALWAYS_USE_INTRINSIC_VERSION = '1'",
-            "& \"$dir\\kotlin.ps1\" --version"
-        ]
-    },
+    "post_install": [
+        "$env:KOTLIN_CLI_WRAPPER_ALWAYS_USE_INTRINSIC_VERSION = '1'",
+        "& \"$dir\\kotlin.ps1\" --version"
+    ],
     "checkver": {
         "github": "https://github.com/JetBrains/kotlin-toolchain"
     },
